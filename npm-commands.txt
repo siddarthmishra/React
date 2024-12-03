@@ -1,22 +1,33 @@
 downloads a package and it's dependencies
 	npm install
 
-Starts the development server.
-	npm start
+================================================================================================================================================
 
-Bundles the app into static files for production.
-	npm run build
-
-Starts the test runner.
-	npm test
-
-To create a production build
-	npm run build
-
-The build folder is ready to be deployed. You may serve it with a static server
-	serve -s build
-	npm install -g serve
+CRA (Create React App) package
+------------------------------------------------------------------------------------------------------------------------------------------------
+	Install the CRA
+		npm install -g create-react-app
 	
-Find out more about deployment here:
-	https://cra.link/deployment
+	To check CRA version
+		create-react-app --version
+	
+	Create the React App using CRA Command (https://www.geeksforgeeks.org/npm-create-react-app/)
+		npx create-react-app reactfirst
 
+	Starts the development server (To start your app).
+		npm start
+
+	Bundles the app into static files for production (To create a production build).
+		npm run build
+
+	Starts the test runner.
+		npm test
+
+	The build folder is ready to be deployed. You may serve it with a static server
+		serve -s build
+		npm install -g serve
+		
+	Find out more about deployment here:
+		https://cra.link/deployment
+
+================================================================================================================================================
