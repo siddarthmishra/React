@@ -1,11 +1,22 @@
-npm install
-	downloads a package and it's dependencies
+downloads a package and it's dependencies
+	npm install
 
-npm start
-  Starts the development server.
+Starts the development server.
+	npm start
 
-npm run build
-  Bundles the app into static files for production.
+Bundles the app into static files for production.
+	npm run build
 
-npm test
-    Starts the test runner.
+Starts the test runner.
+	npm test
+
+To create a production build
+	npm run build
+
+The build folder is ready to be deployed. You may serve it with a static server
+	serve -s build
+	npm install -g serve
+	
+Find out more about deployment here:
+	https://cra.link/deployment
+
