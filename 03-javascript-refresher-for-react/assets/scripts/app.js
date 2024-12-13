@@ -91,3 +91,88 @@ console.log(hobbiesUpperCase);
 // we can also convert to JavaScript Object
 const jsObject = hobbies.map(item => ({hobby: item}));
 console.log(jsObject);
+
+
+// Destructuring - Example
+// we have an array of first name and last name. We can extract like below and continue to use.
+const userName = ["Siddarth", "Mishra"];
+const firstName = userName[0];
+const lastName = userName[1];
+
+// Or else we can use as below, the shorter format.
+// On the right side, the array is created as usual and on the left side, destructuring is done.
+// Zeroth is mapped to Zeroth index and so on.
+const [fname, lname] = ["Siddarth", "Mishra"];
+console.log("First Name - " + fname);
+console.log("Last Name - " + lname);
+
+// Destructuring can also done for Objects
+const user2 = {name : "Siddarth", age : 30};
+console.log("Name = " + user2.name);
+
+// Or else we can use below, the shorter format.
+// Here, we have to use field name as defined in the object. So, it should match unlike in arrays.
+// We can also assign alias.
+const {name : uname, age} = {name : "Siddarth", age : 30};
+console.log("User Name - " + uname);
+console.log("Age = " + age);
+
+// Destructuring can also be done for methods
+// For example, a method "storeOrder" accepts an object "Order"
+class Order {
+    constructor(id, currency, amount, country) {
+        this.id = id;
+        this.currency = currency;
+        this.amount = amount;
+        this.country = country;
+    }
+}
+function storeOrder(Order) { // takes single parameter
+    // accessing via dot notation
+    console.log("Dot Notation - " + Order.id + " - " + Order.amount + " " + Order.currency);
+}
+const order = new Order(1, "INR", 20.5);
+storeOrder(order);
+
+// If we want to Destructure the function, then
+function storeOrderDS({id, amount}) { // destructuring. Still takes single parameter but in curly braces.
+    console.log("Destructured = " + id + " - " + amount);
+}
+storeOrderDS({id : 1, amount : 35.89, currency : "INR"});
+
+// SPREAD OPERATOR (...)
+const newHobbies = ["Travelling", "Binge Watching"];
+// this would create an array within an array i.e nested array like the below
+// [['Chess', 'Coding', 'Cricket', 'Chilling'], ['Travelling', 'Binge Watching']]
+const mergeHobbies1 = [hobbies, newHobbies];
+console.log(mergeHobbies1);
+// But if we want to pull out the values and add as a standalone, then use the spread (...) operator
+// This will create a single array like this the below
+// ['Chess', 'Coding', 'Cricket', 'Chilling', 'Travelling', 'Binge Watching']
+const mergeHobbies2 = [...hobbies, ...newHobbies];
+console.log(mergeHobbies2);
+
+// We can use the Spread operator on Objects.
+// All that are present in the user are extracted to etendedUser like below.
+// {isAdmin: true, name: 'Siddarth', age: 30, newFunction: ƒ}
+const extendedUser = {
+    isAdmin : true,
+    ...user
+};
+console.log(extendedUser);
+
+// Control Structures - if, else, for
+const password = prompt("Enter the password");
+if(password.toLowerCase() === "hello") {
+    alert("Success");
+} else {
+    alert("Fail");
+}
+
+for(const hobby of mergeHobbies2) {
+    console.log(hobby);
+}
+
+// Manipulating the DOM - Not with React
+const list = document.querySelectorAll("li");
+list[0].remove();// This will remove "Base Syntax & Rules"
