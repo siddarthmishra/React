@@ -173,6 +173,66 @@ for(const hobby of mergeHobbies2) {
     console.log(hobby);
 }
 
+// Another way of printing the array is below
+mergeHobbies2.forEach((item, index) => {
+    console.log(`${index} : ${item}`);
+});
+
 // Manipulating the DOM - Not with React
 const list = document.querySelectorAll("li");
 list[0].remove();// This will remove "Base Syntax & Rules"
+
+// Passing function as a value. In this case, we are not executing the function.
+// We are just defining the function and passing it as a paramater value.
+// The function will be called internall with in another function (either in-built or self-defined).
+// Let's take example of setTimeout. It is a pre-defined function supported by browser.
+
+function handleTimeout() { // regular function declared here
+    console.log("Timed out!!!");
+}
+
+const handleTimeout2 = () => {
+    console.log("Timed out... again!!!");
+};
+// If you note here that we are passing the function name but not invoking the function i.e without "()".
+/* The handleTimeout function will be invoked from within the setTimeout function
+after the set time limit has expired.*/
+setTimeout(handleTimeout, 2000);
+setTimeout(handleTimeout2, 3000);
+// Similarly, we can pass anonymous/arrow functions directly.
+setTimeout(() => {
+    console.log("More timing out...");
+}, 4000);
+
+// Another example of passing function as value to another function (self-defined).
+function greetThree(functionAsValue) {
+    functionAsValue();
+}
+greetThree(() => console.log("Passing Function as Value"));
+
+// Defining a function within a function (nested functions).
+// This will make more sense in the context of ReactJS.
+// The nested functions can be execute from the same function but not outside the function.
+function init() {
+    function nestedFunction1() {
+        console.log("nestedFunction1() within init()");
+    }
+    nestedFunction1();
+}
+// If we try to run the nested function out-side of the function, we will get error the below error in console.
+// nestedFunction1 is not defined
+// nestedFunction1();
+
+// we can call init()
+init();
+
+// Reference vs Primitive
+// Primitive => String, Number, Boolean
+// Primitives can't be edited but can obly be reasigned and produce new values.
+let userMessage2 = "Hello";
+userMessage2 = userMessage2.concat("!!!"); // does not edit instead returns a new one
+
+// References i.e. Objects (including arrays)
+const hobbies2 = ["Chess", "Cricket"]; // hobbies2 will hold the memory address
+hobbies2.push("Coding"); // This will modifiy the object
+console.log(hobbies2);
