@@ -13,7 +13,14 @@ function App() {
    * "components" or undefined is not passed anything to useState().
    * (2) = > setSelectedTopic (can be any name) - 2nd is always a function provided by react that can be
    * executed to update this stored value (here selectedTopic). When this function is called,
-   * the component is re-loaded. And only after re-load, the new state (i.e. selectedTopic) will be available.
+   * the component (and any other child components if present) is re-loaded. And only after re-load,
+   * the new state (i.e. selectedTopic) will be available.
+   *
+   * Here, the point to note is that the child components like "Header", in this case, is also re-loaded
+   * which is not required. This re-load of Header can be identified by changing of description on UI on
+   * selecting each button. So, we should narrow down the use of useState() to specific components where
+   * re-load is really required. This can be achieved by further spliting the main component into various
+   * smaller independent component. This will be done in next topic "04-react-essentials-deep-dive".
    * */
   const [selectedTopic, setSelectedTopic] = useState();
   function handleSelect(selectedButton) {
